@@ -87,7 +87,7 @@ def startResponse(update, context):
     if text == "a":
         startNumberRegionsResponse(update, context)
     elif text == "b":
-        startRegions(update, context)
+        startRegionsResponse(update, context)
   # elif text == "c":
   #   startVacinationCode(update, context)
     elif text == "c":
@@ -103,7 +103,16 @@ def startNumberRegionsResponse(update, context):
     setStage(user, "start.number_of_regions")
     
         
-    context.bot.send_message(chat_id=update.effective_chat.id, text="There are {} regions in Ghana.".format(regions))
+    context.bot.send_message(chat_id=update.effective_chat.id, text="There are {} regions in Ghana.".format(len(regions)))
+    stop(update, context)
+
+
+def startRegionsResponse(update, context):
+    user = update.effective_user.id
+    setStage(user, "start.regions")
+    
+    for i in regions:    
+        context.bot.send_message(chat_id=update.effective_chat.id, text="The regions in Ghana are {}.".format(i))
     stop(update, context)
     
 def message(update, context):
