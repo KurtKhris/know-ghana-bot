@@ -112,7 +112,7 @@ def startRegionsResponse(update, context):
     setStage(user, "start.number_of_regions")
     
         
-    context.bot.send_message(chat_id=update.effective_chat.id, text="The regions in Ghana are {}.".format(*regions, sep="," ))
+    context.bot.send_message(chat_id=update.effective_chat.id, text="The regions in Ghana are {}.".format(regions))
     stop(update, context)
     
 def message(update, context):
