@@ -110,12 +110,12 @@ def startNumberRegionsResponse(update, context):
 def startRegionsResponse(update, context):
     user = update.effective_user.id
     setStage(user, "start.number_of_regions")
+    context.bot.send_message(chat_id=update.effective_chat.id, text="The regions in Ghana are: ")
     
     for i in regions:
         if len(regions) == 16:
             context.bot.send_message(chat_id=update.effective_chat.id, text=i)
             
-    context.bot.send_message(chat_id=update.effective_chat.id, text="The regions in Ghana are {}.".format(i for i in regions))
     stop(update, context)
     
 def message(update, context):
