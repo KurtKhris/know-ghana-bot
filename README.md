@@ -1,4 +1,4 @@
 # Know Ghana Bot
-My portfolio webiste with all the relevant information about me.
+A telegram bot to know the various regions and constituenciesin Ghana.
 
 [Demo](t.me/knowghanabot)

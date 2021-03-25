@@ -88,8 +88,6 @@ def startResponse(update, context):
         startNumberRegionsResponse(update, context)
     elif text == "b":
         startRegionsResponse(update, context)
-  # elif text == "c":
-  #   startVacinationCode(update, context)
     elif text == "c":
         startNumberConstituencies(update, context)
     elif text == "d":
