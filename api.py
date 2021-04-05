@@ -122,8 +122,7 @@ def startRegionsResponse(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="The regions in Ghana are: ")
     
     for i in regions:
-        if len(regions) == len(regions):
-            context.bot.send_message(chat_id=update.effective_chat.id, text=i)
+        context.bot.send_message(chat_id=update.effective_chat.id, text=i)
             
     stop(update, context)
     
@@ -140,10 +139,10 @@ def startConstituenciesResponse(update, context):
     setStage(user, "start.constituencies")
     context.bot.send_message(chat_id=update.effective_chat.id, text="The constituencies in Ghana are: ")
     
-    for c in constituencies:
-        if len(constituencies) == len(constituencies):
-            context.bot.send_message(chat_id=update.effective_chat.id, text=c)
-    stop(update, context)
+    # for c in constituencies:
+    #     if len(constituencies) == len(constituencies):
+    #         context.bot.send_message(chat_id=update.effective_chat.id, text=c)
+    return stop(update, context)
 
     
     #stop(update, context)
