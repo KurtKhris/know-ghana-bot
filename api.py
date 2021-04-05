@@ -57,7 +57,7 @@ for x in constituencies_data:
     key= x['regionCode']
     value = x['name']
     
-    if key not in groups :
+    if value not in groups :
         groups.update({key: [value] })        
 print(groups)
 # for d in constituencies_data:
