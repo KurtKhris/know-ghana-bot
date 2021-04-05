@@ -141,7 +141,7 @@ def startConstituenciesResponse(update, context):
     groups = {}
     for key, value in constituencies_data:
         if key not in groups:
-            groups.update({key["regionCode"]:[key["name"]]})
+            groups.update({key[1]:[key[0]]})
             
     print(groups)
     # def chunk_using_generators(lst, n):
