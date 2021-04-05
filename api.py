@@ -141,7 +141,7 @@ def startConstituenciesResponse(update, context):
     groups = {}
     for key, value in data:
         if value not in groups:
-            groups.update({key: [value]})
+            groups.update({value:[constituencies]})
             
     print(groups)
     # def chunk_using_generators(lst, n):
