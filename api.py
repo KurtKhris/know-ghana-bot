@@ -139,12 +139,14 @@ def startConstituenciesResponse(update, context):
     user = update.effective_user.id
     setStage(user, "start.constituencies")
     context.bot.send_message(chat_id=update.effective_chat.id, text="The constituencies in Ghana are: ")
-    stop(update, context)
-
+    
     for c in constituencies:
         if len(constituencies) == len(constituencies):
             context.bot.send_message(chat_id=update.effective_chat.id, text=c)
             
+    stop(update, context)
+
+    
     #stop(update, context)
     
 def message(update, context):
