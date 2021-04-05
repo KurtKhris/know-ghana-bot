@@ -141,7 +141,7 @@ def startConstituenciesResponse(update, context):
     groups = {}
     for key, value in constituencies_data:
         if value not in groups:
-            groups.update({value:[constituencies]})
+            groups.update({key.get("regionCode"):[value.get("name") ]})
             
     print(groups)
     # def chunk_using_generators(lst, n):
@@ -166,17 +166,17 @@ def startConstituenciesResponse(update, context):
     # print(line_count)
     #print(data)
     # for c in constituencies:
-    context.bot.send_message(chat_id=update.effective_chat.id, text=data)
-    context.bot.send_message(chat_id=update.effective_chat.id, text=data1)
-    context.bot.send_message(chat_id=update.effective_chat.id, text=data2)
-    context.bot.send_message(chat_id=update.effective_chat.id, text=data3)
-    context.bot.send_message(chat_id=update.effective_chat.id, text=data4)
-    context.bot.send_message(chat_id=update.effective_chat.id, text=data5)
-    context.bot.send_message(chat_id=update.effective_chat.id, text=data6)
-    context.bot.send_message(chat_id=update.effective_chat.id, text=data7)
-    context.bot.send_message(chat_id=update.effective_chat.id, text=data8)
-    context.bot.send_message(chat_id=update.effective_chat.id, text=data9)
-    context.bot.send_message(chat_id=update.effective_chat.id, text=data10)
+    # context.bot.send_message(chat_id=update.effective_chat.id, text=data)
+    # context.bot.send_message(chat_id=update.effective_chat.id, text=data1)
+    # context.bot.send_message(chat_id=update.effective_chat.id, text=data2)
+    # context.bot.send_message(chat_id=update.effective_chat.id, text=data3)
+    # context.bot.send_message(chat_id=update.effective_chat.id, text=data4)
+    # context.bot.send_message(chat_id=update.effective_chat.id, text=data5)
+    # context.bot.send_message(chat_id=update.effective_chat.id, text=data6)
+    # context.bot.send_message(chat_id=update.effective_chat.id, text=data7)
+    # context.bot.send_message(chat_id=update.effective_chat.id, text=data8)
+    # context.bot.send_message(chat_id=update.effective_chat.id, text=data9)
+    # context.bot.send_message(chat_id=update.effective_chat.id, text=data10)
 
     stop(update, context)
 
