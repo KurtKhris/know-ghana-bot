@@ -138,22 +138,27 @@ def startConstituenciesResponse(update, context):
     user = update.effective_user.id
     setStage(user, "start.constituencies")
     context.bot.send_message(chat_id=update.effective_chat.id, text="The constituencies in Ghana are: ")
-    
-    def chunk_using_generators(lst, n):
-        for i in range(0, len(lst), n):
-            yield lst[i:i + n]
-    chunk = list(chunk_using_generators(constituencies, 25))
-    data = "".join("\n{}".format(x) for x in chunk[0]) 
-    data1 = "".join("\n{}".format(x) for x in chunk[1]) 
-    data2 = "".join("\n{}".format(x) for x in chunk[2]) 
-    data3 = "".join("\n{}".format(x) for x in chunk[3]) 
-    data4 = "".join("\n{}".format(x) for x in chunk[4]) 
-    data5 = "".join("\n{}".format(x) for x in chunk[5]) 
-    data6 = "".join("\n{}".format(x) for x in chunk[6]) 
-    data7 = "".join("\n{}".format(x) for x in chunk[7]) 
-    data8 = "".join("\n{}".format(x) for x in chunk[8]) 
-    data9 = "".join("\n{}".format(x) for x in chunk[9]) 
-    data10 = "".join("\n{}".format(x) for x in chunk[10])  
+    groups = {}
+    for key, value in data:
+        if value not in groups:
+            groups.update({key: [value]})
+            
+    print(groups)
+    # def chunk_using_generators(lst, n):
+    #     for i in range(0, len(lst), n):
+    #         yield lst[i:i + n]
+    # chunk = list(chunk_using_generators(constituencies, 25))
+    # data = "".join("\n{}".format(x) for x in chunk[0]) 
+    # data1 = "".join("\n{}".format(x) for x in chunk[1]) 
+    # data2 = "".join("\n{}".format(x) for x in chunk[2]) 
+    # data3 = "".join("\n{}".format(x) for x in chunk[3]) 
+    # data4 = "".join("\n{}".format(x) for x in chunk[4]) 
+    # data5 = "".join("\n{}".format(x) for x in chunk[5]) 
+    # data6 = "".join("\n{}".format(x) for x in chunk[6]) 
+    # data7 = "".join("\n{}".format(x) for x in chunk[7]) 
+    # data8 = "".join("\n{}".format(x) for x in chunk[8]) 
+    # data9 = "".join("\n{}".format(x) for x in chunk[9]) 
+    # data10 = "".join("\n{}".format(x) for x in chunk[10])  
     # line_count = 0.
     # for line in data:
     #     if line != "\n":
