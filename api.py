@@ -141,8 +141,8 @@ def startConstituenciesResponse(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="The constituencies in Ghana are: ")
     groups = {}
     for key in constituencies_data:
-        if key == "regionCode" :
-            groups.update({constituencies_data[key]: [constituencies_data["name"]] })        
+        if key not in groups :
+            groups.update({constituencies_data["regionCode"]: [constituencies_data["name"]] })        
     print(groups)
     # def chunk_using_generators(lst, n):
     #     for i in range(0, len(lst), n):
