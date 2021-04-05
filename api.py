@@ -51,6 +51,7 @@ for d in data:
 constituencies_data = response1.json()['data']
 #jprint(data)
 constituencies = [x['name'] for x in constituencies_data]
+constituencies_rc = [x['regionCode'] for x in constituencies_data]
 
 # for d in constituencies_data:
     
@@ -139,10 +140,12 @@ def startConstituenciesResponse(update, context):
     setStage(user, "start.constituencies")
     context.bot.send_message(chat_id=update.effective_chat.id, text="The constituencies in Ghana are: ")
     groups = {}
-    for key, value in constituencies_data:
+    for key, value in constituencies_rc:
         if key not in groups:
-            groups.update({key[1]:[key[0]]})
-            
+            groups.update(key)
+    for value in constituencies_rc:
+        if value not in groups:
+            groups.update({key:[value]})        
     print(groups)
     # def chunk_using_generators(lst, n):
     #     for i in range(0, len(lst), n):
