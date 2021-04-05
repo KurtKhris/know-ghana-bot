@@ -122,7 +122,7 @@ def startRegionsResponse(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="The regions in Ghana are: ")
     
     for i in regions:
-        if len(regions) == 16:
+        if len(regions) == len(regions):
             context.bot.send_message(chat_id=update.effective_chat.id, text=i)
             
     stop(update, context)
