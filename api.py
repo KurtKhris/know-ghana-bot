@@ -143,7 +143,17 @@ def startConstituenciesResponse(update, context):
         for i in range(0, len(lst), n):
             yield lst[i:i + n]
     chunk = list(chunk_using_generators(constituencies, 25))
-    data = "".join("\n{}".format(x) for x in chunk[0])  
+    data = "".join("\n{}".format(x) for x in chunk[0]) 
+    data1 = "".join("\n{}".format(x) for x in chunk[1]) 
+    data2 = "".join("\n{}".format(x) for x in chunk[2]) 
+    data3 = "".join("\n{}".format(x) for x in chunk[3]) 
+    data4 = "".join("\n{}".format(x) for x in chunk[4]) 
+    data5 = "".join("\n{}".format(x) for x in chunk[5]) 
+    data6 = "".join("\n{}".format(x) for x in chunk[6]) 
+    data7 = "".join("\n{}".format(x) for x in chunk[7]) 
+    data8 = "".join("\n{}".format(x) for x in chunk[8]) 
+    data9 = "".join("\n{}".format(x) for x in chunk[9]) 
+    data10 = "".join("\n{}".format(x) for x in chunk[10])  
     # line_count = 0.
     # for line in data:
     #     if line != "\n":
@@ -152,6 +162,17 @@ def startConstituenciesResponse(update, context):
     #print(data)
     # for c in constituencies:
     context.bot.send_message(chat_id=update.effective_chat.id, text=data)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=data1)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=data2)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=data3)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=data4)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=data5)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=data6)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=data7)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=data8)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=data9)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=data10)
+
     stop(update, context)
 
     
