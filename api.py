@@ -23,6 +23,8 @@ stages = [
 
 userStages = {} # database
 response = requests.get("http://ghdata.herokuapp.com/regions/")
+response1 = requests.get("http://ghdata.herokuapp.com/constituencies")
+
 
 #print(response.status_code) #200
 
@@ -33,7 +35,7 @@ def jprint(obj):
     text = json.dumps(obj, sort_keys=True, indent=4)
     print(text)
 
-#jprint(response.json())
+jprint(response1.json())
 
 data = response.json()['data']
 #jprint(data)
@@ -46,6 +48,16 @@ for d in data:
 
 #print(regions)
 
+constituencies_data = response1.json()['data']
+#jprint(data)
+constituencies = []
+
+for d in constituencies_data:
+    
+    reg = d['name']
+    constituencies.append(reg)
+    
+print(len(constituencies)) 
 def setStage(user, stage):
     userStages[user] = stage
   # print(userStages)
@@ -103,8 +115,7 @@ def startNumberRegionsResponse(update, context):
         
     context.bot.send_message(chat_id=update.effective_chat.id, text="There are {} regions in Ghana.".format(len(regions)))
     stop(update, context)
-
-
+    
 def startRegionsResponse(update, context):
     user = update.effective_user.id
     setStage(user, "start.number_of_regions")
@@ -114,6 +125,14 @@ def startRegionsResponse(update, context):
         if len(regions) == 16:
             context.bot.send_message(chat_id=update.effective_chat.id, text=i)
             
+    stop(update, context)
+    
+def startNumberConstituenciesResponse(update, context):
+    user = update.effective_user.id
+    setStage(user, "start.number_of_constituencies")
+    
+        
+    context.bot.send_message(chat_id=update.effective_chat.id, text="There are {} constituencies in Ghana.".format(len(constituencies)))
     stop(update, context)
     
 def message(update, context):
@@ -129,6 +148,8 @@ def message(update, context):
                 startResponse(update, context)
             if(stage == "start.number_of_regions"):
                 startNumberRegionsResponse(update, context)
+            if(stage == "start.number_of_constituencies"):
+                startNumberConstituenciesResponse(update, context)
 #       if(stage == "start.next_vacination_date"):
 #         startNextVacinationDateResponse(update, context)
 #       # if(stage == "start.vacination_code"):
