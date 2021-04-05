@@ -103,7 +103,7 @@ def startResponse(update, context):
     elif text == "c":
         startNumberConstituenciesResponse(update, context)
     elif text == "d":
-        startConstituencies(update, context)
+        startConstituenciesResponse(update, context)
     else:
         sendInvalid(update, context) 
 
@@ -133,6 +133,17 @@ def startNumberConstituenciesResponse(update, context):
     
         
     context.bot.send_message(chat_id=update.effective_chat.id, text="There are {} constituencies in Ghana.".format(len(constituencies)))
+    stop(update, context)
+
+def startConstituenciesResponse(update, context):
+    user = update.effective_user.id
+    setStage(user, "start.constituencies")
+    context.bot.send_message(chat_id=update.effective_chat.id, text="The constituencies in Ghana are: ")
+    
+    for i in constituencies:
+        if len(constituencies) == len(constituencies):
+            context.bot.send_message(chat_id=update.effective_chat.id, text=i)
+            
     stop(update, context)
     
 def message(update, context):
