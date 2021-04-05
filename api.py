@@ -142,7 +142,7 @@ def startConstituenciesResponse(update, context):
     groups = {}
     for key in constituencies_rc:
         if key not in groups:
-            groups.update(key)
+            return True
     for value in constituencies:
         if value not in groups:
             groups.update({key:[value]})        
