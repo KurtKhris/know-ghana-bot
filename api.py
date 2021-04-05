@@ -50,12 +50,12 @@ for d in data:
 
 constituencies_data = response1.json()['data']
 #jprint(data)
-constituencies = []
+constituencies = [x['name'] for x in constituencies_data]
 
-for d in constituencies_data:
+# for d in constituencies_data:
     
-    reg = d['name']
-    constituencies.append(reg)
+#     reg = d['name']
+#     constituencies.append(reg)
     
 print(len(constituencies)) 
 def setStage(user, stage):
