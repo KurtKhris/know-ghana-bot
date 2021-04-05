@@ -58,7 +58,9 @@ for x in constituencies_data:
     value = x['name']
     
     if key not in groups :
-        groups.update({key.append(value) })        
+        groups.update({key:[value] })   
+        if key in groups:
+            groups[key].append(value)     
 print(groups)
 # for d in constituencies_data:
     
