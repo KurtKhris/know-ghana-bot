@@ -142,7 +142,7 @@ def startConstituenciesResponse(update, context):
     groups = {}
     for key in constituencies_data:
         if key == "regionCode" :
-            groups.update({key:constituencies_data[key]})        
+            groups.update({constituencies_data[key]: [constituencies_data["name"]] })        
     print(groups)
     # def chunk_using_generators(lst, n):
     #     for i in range(0, len(lst), n):
