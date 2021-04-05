@@ -140,7 +140,7 @@ def startConstituenciesResponse(update, context):
     setStage(user, "start.constituencies")
     context.bot.send_message(chat_id=update.effective_chat.id, text="The constituencies in Ghana are: ")
     groups = {}
-    for key, value in constituencies_rc:
+    for key in constituencies_rc:
         if key not in groups:
             groups.update(key)
     for value in constituencies:
