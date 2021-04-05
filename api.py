@@ -53,9 +53,13 @@ constituencies_data = response1.json()['data']
 constituencies = [x['name'] for x in constituencies_data]
 constituencies_rc = [x['regionCode'] for x in constituencies_data]
 groups = {}
-for key in constituencies_rc:
+for x in constituencies_data:
+    x = x.split(":")
+    key= x[0].strip()
+    value = x[2].strip()
+    
     if key not in groups :
-        groups.update({constituencies_rc: [constituencies] })        
+        groups.update({key: [value] })        
 print(groups)
 # for d in constituencies_data:
     
