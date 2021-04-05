@@ -143,7 +143,7 @@ def startConstituenciesResponse(update, context):
     for c in constituencies:
         if len(constituencies) == len(constituencies):
             context.bot.send_message(chat_id=update.effective_chat.id, text=c)
-        stop(update, context)
+    stop(update, context)
 
     
     #stop(update, context)
