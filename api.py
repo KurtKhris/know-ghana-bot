@@ -62,6 +62,7 @@ for x in constituencies_data:
         if key in groups:
             groups[key].append(value)     
 print(groups)
+print(value)
 # for d in constituencies_data:
     
 #     reg = d['name']
