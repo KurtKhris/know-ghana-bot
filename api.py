@@ -101,7 +101,7 @@ def startResponse(update, context):
     elif text == "b":
         startRegionsResponse(update, context)
     elif text == "c":
-        startNumberConstituencies(update, context)
+        startNumberConstituenciesResponse(update, context)
     elif text == "d":
         startConstituencies(update, context)
     else:
@@ -118,7 +118,7 @@ def startNumberRegionsResponse(update, context):
     
 def startRegionsResponse(update, context):
     user = update.effective_user.id
-    setStage(user, "start.number_of_regions")
+    setStage(user, "start.regions")
     context.bot.send_message(chat_id=update.effective_chat.id, text="The regions in Ghana are: ")
     
     for i in regions:
