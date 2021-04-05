@@ -35,7 +35,7 @@ def jprint(obj):
     text = json.dumps(obj, sort_keys=True, indent=4)
     print(text)
 
-jprint(response1.json())
+# jprint(response1.json())
 
 data = response.json()['data']
 #jprint(data)
@@ -146,7 +146,7 @@ def startConstituenciesResponse(update, context):
     print(line_count)
     print(data)
     # for c in constituencies:
-    context.bot.send_message(chat_id=update.effective_chat.id, text=data)
+    #context.bot.send_message(chat_id=update.effective_chat.id, text=data)
     stop(update, context)
 
     
