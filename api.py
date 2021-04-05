@@ -54,9 +54,8 @@ constituencies = [x['name'] for x in constituencies_data]
 constituencies_rc = [x['regionCode'] for x in constituencies_data]
 groups = {}
 for x in constituencies_data:
-    x = x.split(":")
-    key= x[0].strip()
-    value = x[2].strip()
+    key= x['name']
+    value = x['regionCode']
     
     if key not in groups :
         groups.update({key: [value] })        
