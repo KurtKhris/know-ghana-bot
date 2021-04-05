@@ -138,19 +138,20 @@ def startConstituenciesResponse(update, context):
     user = update.effective_user.id
     setStage(user, "start.constituencies")
     context.bot.send_message(chat_id=update.effective_chat.id, text="The constituencies in Ghana are: ")
-    data = "".join("\n{}".format(x) for x in constituencies)
+    
     def chunk_using_generators(lst, n):
         for i in range(0, len(lst), n):
             yield lst[i:i + n]
-    print(list(chunk_using_generators(constituencies, 55)))    
+    chunk = list(chunk_using_generators(constituencies, 25))
+    data = "".join("\n{}".format(x) for x in chunk[0])  
     # line_count = 0.
     # for line in data:
     #     if line != "\n":
     #         line_count += 1
     # print(line_count)
-    print(data)
+    #print(data)
     # for c in constituencies:
-    #context.bot.send_message(chat_id=update.effective_chat.id, text=data)
+    context.bot.send_message(chat_id=update.effective_chat.id, text=data)
     stop(update, context)
 
     
