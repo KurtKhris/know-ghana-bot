@@ -51,16 +51,19 @@ for d in data:
 constituencies_data = response1.json()['data']
 #jprint(data)
 constituencies = [x['name'] for x in constituencies_data]
+print(constituencies)
+
 constituencies_rc = [x['regionCode'] for x in constituencies_data]
-groups = {}
-for x in constituencies_data:
-    key= constituencies
-    value = constituencies_rc
+print(constituencies_rc)
+# groups = {}
+# for x in constituencies_data:
+#     key= x['regionCode']
+#     value = x['name']
     
-    if key not in groups :
-        groups.update({key:[value] })   
-        if key in groups:
-            groups[key].append(value)     
+#     if key not in groups :
+#         groups.update({key:[value] })   
+#         if key in groups:
+#             groups[key].append(value)     
 print(groups)
 
 # for d in constituencies_data:
