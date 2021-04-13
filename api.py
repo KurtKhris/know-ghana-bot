@@ -51,27 +51,28 @@ for d in data:
 constituencies_data = response1.json()['data']
 #jprint(data)
 constituencies = [x['name'] for x in constituencies_data]
-print(constituencies)
+#print(constituencies)
 
 constituencies_rc = [x['regionCode'] for x in constituencies_data]
-print(constituencies_rc)
-# groups = {}
-# for x in constituencies_data:
-#     key= x['regionCode']
-#     value = x['name']
+#print(constituencies_rc)
+groups = {}
+for x in constituencies_data:
+    keys = constituencies_rc
+    values  = constituencies
     
-#     if key not in groups :
-#         groups.update({key:[value] })   
-#         if key in groups:
-#             groups[key].append(value)     
-print(groups)
-
+    for key in keys:
+        if key not in groups :
+            groups.update({key:[value for value in values] })   
+            # if key in groups:
+            #     groups[key].append(value)     
+print(len(groups.keys()))
+# print( [len(key) for key in groups.keys() ] )
 # for d in constituencies_data:
     
 #     reg = d['name']
 #     constituencies.append(reg)
     
-print(len(constituencies)) 
+#print(len(constituencies)) 
 def setStage(user, stage):
     userStages[user] = stage
   # print(userStages)
